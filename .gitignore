@@ -1,0 +1,10 @@
+*.txt
+!requirements.txt
+test*
+throttle.ctrl
+pywikibot.lwp
+apicache-py3/
+*pycache*
+/cache
+/cache/*
+user-*.py
