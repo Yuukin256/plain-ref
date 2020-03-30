@@ -42,10 +42,13 @@ def from_citeweb(wikicode: Wikicode) -> Wikicode:
             date = format_date(getvalue(t, 'date'))
             website = getvalue(t, 'website')
             publisher = getvalue(t, 'publisher')
+            last = getvalue(t, 'last')
             accessdate = format_date(getvalue(t, 'accessdate')) if getvalue(t, 'accessdate') else format_date(getvalue(t, 'access-date'))
 
             if (title, url, accessdate):
                 new = f'“[{url} {title}]”'
+
+                publisher = '日本放送協会' if not publisher and last == '日本放送協会' else publisher
 
                 if publisher and website:
                     new += f'. \'\'{website}\'\'. {publisher} ({date}). ' if date else f'. \'\'{website}\'\'. {publisher}. '
