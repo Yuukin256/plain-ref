@@ -7,7 +7,7 @@ from mwparserfromhell.nodes import Template
 import pywikibot
 
 
-def getvalue(t: Template, p: str):
+def getvalue(t: Template, p: str) -> str:
     try:
         return t.get(p).value.strip()
     except ValueError:
@@ -44,7 +44,7 @@ def from_citeweb(wikicode: Wikicode) -> Wikicode:
             publisher = getvalue(t, 'publisher')
             accessdate = format_date(getvalue(t, 'accessdate')) if getvalue(t, 'accessdate') else format_date(getvalue(t, 'access-date'))
 
-            if (title, url, accessdate):
+            if all(title, url, accessdate):
                 new = f'“[{url} {title}]”'
 
                 if publisher and website:
