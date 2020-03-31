@@ -68,7 +68,7 @@ def from_citeweb(wikicode: Wikicode) -> Wikicode:
 
 
 def main():
-    title = pywikibot.input('元の記事名を入力: ')
+    title = '日本における2019年コロナウイルス感染症の流行状況'
     site = pywikibot.Site()
     page = pywikibot.Page(site, title)
 
